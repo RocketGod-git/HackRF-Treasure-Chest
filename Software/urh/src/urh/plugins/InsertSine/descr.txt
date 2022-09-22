@@ -1,3 +1,0 @@
-This plugin enables you to insert custom sine waves into your signal.
-You will find a new context menu entry in interpretation signal view.
-Transform URH into a full fledged signal editor!
