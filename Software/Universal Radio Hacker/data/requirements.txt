@@ -1,0 +1,4 @@
+numpy
+pyqt5
+psutil
+cython!=0.29.18
