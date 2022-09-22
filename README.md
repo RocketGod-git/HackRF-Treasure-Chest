@@ -1,6 +1,9 @@
 # HackRF-Treasure-Chest
-HackRF software and captures by everyone and for everyone. Argh matey.
-RocketGod was here.
+HackRF software and captures by everyone and for everyone. Argh matey. <br>
+RocketGod was here. <br>
+<br>
+Please clone, contribute, and submit PR. <br>
+Or just pirate this shit, FTW.
 
 
                                                                                                                                                       
