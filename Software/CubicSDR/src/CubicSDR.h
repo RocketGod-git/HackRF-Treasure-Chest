@@ -1,0 +1,270 @@
+// Copyright (c) Charles J. Cliffe
+// SPDX-License-Identifier: GPL-2.0+
+
+#pragma once
+
+//WX_GL_CORE_PROFILE 1
+//WX_GL_MAJOR_VERSION 3
+//WX_GL_MINOR_VERSION 2
+
+#include <thread>
+
+#include "GLExt.h"
+#include "PrimaryGLContext.h"
+
+#include "ThreadBlockingQueue.h"
+#include "SoapySDRThread.h"
+#include "SDREnumerator.h"
+#include "SDRPostThread.h"
+#include "AudioThread.h"
+#include "DemodulatorMgr.h"
+#include "AppConfig.h"
+#include "AppFrame.h"
+#include "FrequencyDialog.h"
+#include "DemodLabelDialog.h"
+#include "BookmarkMgr.h"
+#include "SessionMgr.h"
+
+#include "ScopeVisualProcessor.h"
+#include "SpectrumVisualProcessor.h"
+#include "SpectrumVisualDataThread.h"
+#include "SDRDevices.h"
+#include "Modem.h"
+
+#include "ModemFM.h"
+#include "ModemNBFM.h"
+#include "ModemFMStereo.h"
+#include "ModemCW.h"
+#include "ModemAM.h"
+#include "ModemUSB.h"
+#include "ModemLSB.h"
+#include "ModemDSB.h"
+#include "ModemIQ.h"
+
+#ifdef ENABLE_DIGITAL_LAB
+#include "ModemAPSK.h"
+#include "ModemASK.h"
+#include "ModemBPSK.h"
+#include "ModemDPSK.h"
+#include "ModemFSK.h"
+#include "ModemGMSK.h"
+#include "ModemOOK.h"
+#include "ModemPSK.h"
+#include "ModemQAM.h"
+#include "ModemQPSK.h"
+#include "ModemSQAM.h"
+#include "ModemST.h"
+#endif
+
+#ifdef USE_HAMLIB
+class RigThread;
+#endif
+
+#include <wx/cmdline.h>
+
+#define NUM_DEMODULATORS 1
+
+std::string& filterChars(std::string& s, const std::string& allowed);
+std::string frequencyToStr(long long freq);
+long long strToFrequency(std::string freqStr);
+
+class CubicSDR: public wxApp {
+public:
+    CubicSDR();
+
+    PrimaryGLContext &GetContext(wxGLCanvas *canvas);
+    wxGLContextAttrs* GetContextAttributes();
+
+    bool OnInit() override;
+    int OnExit() override;
+
+    void OnInitCmdLine(wxCmdLineParser& parser) override;
+    bool OnCmdLineParsed(wxCmdLineParser& parser) override;
+
+    void deviceSelector();
+    void sdrThreadNotify(SDRThread::SDRThreadState state, const std::string& message);
+    void sdrEnumThreadNotify(SDREnumerator::SDREnumState state, std::string message);
+    
+    void setFrequency(long long freq);
+    long long getFrequency();
+    
+    void lockFrequency(long long freq);
+    bool isFrequencyLocked();
+    void unlockFrequency();
+
+    void setOffset(long long ofs);
+    long long getOffset();
+
+    void setAntennaName(const std::string& name);
+    const std::string& getAntennaName();
+
+    void setChannelizerType(SDRPostThreadChannelizerType chType);
+    SDRPostThreadChannelizerType getChannelizerType();
+   
+
+    void setSampleRate(long long rate_in);
+    long long getSampleRate();
+
+   
+    std::vector<SDRDeviceInfo *> *getDevices();
+    void setDevice(SDRDeviceInfo *dev, int waitMsForTermination);
+    void stopDevice(bool store, int waitMsForTermination);
+    SDRDeviceInfo * getDevice();
+
+    ScopeVisualProcessor *getScopeProcessor();
+    SpectrumVisualProcessor *getSpectrumProcessor();
+    SpectrumVisualProcessor *getDemodSpectrumProcessor();
+    
+    DemodulatorThreadOutputQueuePtr getAudioVisualQueue();
+    DemodulatorThreadInputQueuePtr getIQVisualQueue();
+    DemodulatorThreadInputQueuePtr getWaterfallVisualQueue();
+    
+    DemodulatorMgr &getDemodMgr();
+    BookmarkMgr &getBookmarkMgr();
+    SessionMgr &getSessionMgr();
+
+    SDRPostThread *getSDRPostThread();
+    SDRThread *getSDRThread();
+
+    void notifyDemodulatorsChanged();
+   
+    void removeDemodulator(const DemodulatorInstancePtr& demod);
+
+    void setFrequencySnap(int snap_in);
+    int getFrequencySnap();
+
+    AppConfig *getConfig();
+    void saveConfig();
+
+    void setPPM(int ppm_in);
+    int getPPM();
+
+    void showFrequencyInput(FrequencyDialog::FrequencyDialogTarget targetMode = FrequencyDialog::FDIALOG_TARGET_DEFAULT, const wxString& initString = "");
+    void showLabelInput();
+    AppFrame *getAppFrame();
+    
+    bool areDevicesReady();
+    bool areDevicesEnumerating();
+    bool areModulesMissing();
+    std::string getNotification();
+
+    void notifyMainUIOfDeviceChange(bool forceRefreshOfGains = false);
+    
+    void addRemote(const std::string& remoteAddr);
+    void removeRemote(const std::string& remoteAddr);
+
+    void setDeviceSelectorClosed();
+    void reEnumerateDevices();
+    bool isDeviceSelectorOpen();
+    void closeDeviceSelector();
+    
+    void setAGCMode(bool mode);
+    bool getAGCMode();
+
+    void setGain(const std::string& name, float gain_in);
+    float getGain(const std::string& name);
+
+    void setStreamArgs(SoapySDR::Kwargs streamArgs_in);
+    void setDeviceArgs(SoapySDR::Kwargs settingArgs_in);
+
+    bool getUseLocalMod();
+    std::string getModulePath();
+    
+    void setActiveGainEntry(std::string gainName);
+    std::string getActiveGainEntry();
+
+    void setSoloMode(bool solo);
+    bool getSoloMode();
+
+    bool isShuttingDown();
+    
+#ifdef USE_HAMLIB
+    RigThread *getRigThread();
+    void initRig(int rigModel, std::string rigPort, int rigSerialRate);
+    void stopRig();
+    bool rigIsActive();
+#endif
+    
+private:
+    int FilterEvent(wxEvent& event) override;
+    
+    AppFrame *appframe = nullptr;
+    AppConfig config;
+    PrimaryGLContext *m_glContext = nullptr;
+    wxGLContextAttrs *m_glContextAttributes = nullptr;
+
+    std::vector<SDRDeviceInfo *> *devs = nullptr;
+
+    DemodulatorMgr demodMgr;
+    BookmarkMgr bookmarkMgr;
+    SessionMgr sessionMgr;
+
+    std::atomic_llong frequency;
+    std::atomic_llong offset;
+    std::atomic_int ppm, snap;
+    std::atomic_llong sampleRate;
+    std::string antennaName;
+    std::atomic_bool agcMode;
+    std::atomic_bool shuttingDown;
+
+    SDRThread *sdrThread = nullptr;
+    SDREnumerator *sdrEnum = nullptr;
+    SDRPostThread *sdrPostThread = nullptr;
+    SpectrumVisualDataThread *spectrumVisualThread = nullptr;
+    SpectrumVisualDataThread *demodVisualThread = nullptr;
+
+    SDRThreadIQDataQueuePtr pipeSDRIQData;
+    DemodulatorThreadInputQueuePtr pipeIQVisualData;
+    DemodulatorThreadOutputQueuePtr pipeAudioVisualData;
+    DemodulatorThreadInputQueuePtr pipeDemodIQVisualData;
+    DemodulatorThreadInputQueuePtr pipeWaterfallIQVisualData;
+    DemodulatorThreadInputQueuePtr pipeActiveDemodIQVisualData;
+
+    ScopeVisualProcessor scopeProcessor;
+    
+    SDRDevicesDialog *deviceSelectorDialog = nullptr;
+
+    SoapySDR::Kwargs streamArgs;
+    SoapySDR::Kwargs settingArgs;
+    
+    std::thread *t_SDR = nullptr;
+    std::thread *t_SDREnum = nullptr;
+    std::thread *t_PostSDR = nullptr;
+    std::thread *t_SpectrumVisual = nullptr;
+    std::thread *t_DemodVisual = nullptr;
+    std::atomic_bool devicesReady;
+    std::atomic_bool devicesFailed;
+    std::atomic_bool deviceSelectorOpen;
+    std::atomic_bool sampleRateInitialized;
+    std::atomic_bool useLocalMod;
+    std::string notifyMessage;
+    std::string modulePath;
+    
+    std::mutex notify_busy;
+    
+    std::atomic_bool frequency_locked;
+    std::atomic_llong lock_freq;
+    FrequencyDialog::FrequencyDialogTarget fdlgTarget;
+    std::string activeGain;
+    std::atomic_bool soloMode;
+    SDRDeviceInfo *stoppedDev;
+#ifdef USE_HAMLIB
+    RigThread* rigThread = nullptr;
+    std::thread *t_Rig = nullptr;
+#endif
+
+    void initAudioDevices() const;
+};
+
+static const wxCmdLineEntryDesc commandLineInfo [] =
+{
+    { wxCMD_LINE_SWITCH, "h", "help", "Command line parameter help", wxCMD_LINE_VAL_NONE, wxCMD_LINE_OPTION_HELP },
+    { wxCMD_LINE_OPTION, "c", "config", "Specify a named configuration to use, i.e. '-c ham'", wxCMD_LINE_VAL_STRING, 0 },
+    { wxCMD_LINE_OPTION, "m", "modpath", "Load modules from supplied path, i.e. '-m ~/SoapyMods/'", wxCMD_LINE_VAL_STRING, 0 },
+#ifdef BUNDLE_SOAPY_MODS
+    { wxCMD_LINE_SWITCH, "b", "bundled", "Use bundled SoapySDR modules first instead of local.", wxCMD_LINE_VAL_NONE, 0 },
+#endif
+    { wxCMD_LINE_NONE, nullptr, nullptr, nullptr, wxCMD_LINE_VAL_NONE, 0 }
+};
+
+DECLARE_APP(CubicSDR)

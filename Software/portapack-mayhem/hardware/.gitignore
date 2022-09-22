@@ -1,0 +1,5 @@
+# Common
+*.bak
+
+# KiCad
+*.kicad_pcb-bak

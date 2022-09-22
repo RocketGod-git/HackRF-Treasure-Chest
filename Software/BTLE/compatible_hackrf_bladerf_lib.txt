@@ -1,0 +1,12 @@
+Following versions were tested. Not means other versions won't work.
+
+bladeRF:
+
+bladeRF-cli --version
+1.8.0-0.2019.07-5
+
+HackRF:
+
+hackrf_info
+hackrf_info version: git-f202160
+libhackrf version: git-f202160 (0.5)

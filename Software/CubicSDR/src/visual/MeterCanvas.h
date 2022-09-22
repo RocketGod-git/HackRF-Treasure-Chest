@@ -1,0 +1,64 @@
+// Copyright (c) Charles J. Cliffe
+// SPDX-License-Identifier: GPL-2.0+
+
+#pragma once
+
+#include "wx/glcanvas.h"
+#include "wx/timer.h"
+
+#include <vector>
+#include <queue>
+
+#include "InteractiveCanvas.h"
+#include "MeterContext.h"
+#include "MouseTracker.h"
+
+#include "Timer.h"
+
+class MeterCanvas: public InteractiveCanvas {
+public:
+    MeterCanvas(wxWindow *parent, const wxGLAttributes& dispAttrs);
+    ~MeterCanvas() override;
+
+    void setLevel(float level_in);
+    float getLevel() const;
+
+    void setMax(float max_in);
+    void setMin(float max_in);
+
+    void setUserInputValue(float slider_in);
+    void setInputValue(float slider_in);
+    bool inputChanged() const;
+    float getInputValue();
+    void setShowUserInput(bool showUserInput_in);
+
+    void setHelpTip(std::string tip);
+
+private:
+    void OnPaint(wxPaintEvent& event);
+    void OnIdle(wxIdleEvent &event);
+
+    void OnMouseMoved(wxMouseEvent& event);
+    void OnMouseDown(wxMouseEvent& event);
+    void OnMouseReleased(wxMouseEvent& event);
+	void OnMouseWheelMoved(wxMouseEvent& event);
+	void OnMouseRightDown(wxMouseEvent& event);
+	void OnMouseRightReleased(wxMouseEvent& event);
+    void OnMouseEnterWindow(wxMouseEvent& event);
+    void OnMouseLeftWindow(wxMouseEvent& event);
+
+    MeterContext *glContext;
+
+    float level;
+    float level_min, level_max;
+
+    float inputValue;
+    float userInputValue;
+
+    bool showUserInput;
+    
+    std::string helpTip;
+    //
+wxDECLARE_EVENT_TABLE();
+};
+
