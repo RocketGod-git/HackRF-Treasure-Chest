@@ -9,4 +9,5 @@
 >>>>>>> Stashed changes
 =======
 >>>>>>> parent of c6478ea... November 2022 Update
-.raw filter=lfs diff=lfs merge=lfs -text
+*.zip filter=lfs diff=lfs merge=lfs -text
+*.ZIP filter=lfs diff=lfs merge=lfs -text
