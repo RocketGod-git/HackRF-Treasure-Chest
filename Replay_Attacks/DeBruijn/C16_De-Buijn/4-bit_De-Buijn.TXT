@@ -1,0 +1,2 @@
+sample_rate=250000
+
