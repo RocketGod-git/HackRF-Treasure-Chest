@@ -1,2 +1,8 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+<<<<<<< Updated upstream
+=======
+*.c16 filter=lfs diff=lfs merge=lfs -text
+*.RAW filter=lfs diff=lfs merge=lfs -text
+*.C16 filter=lfs diff=lfs merge=lfs -text
+>>>>>>> Stashed changes
