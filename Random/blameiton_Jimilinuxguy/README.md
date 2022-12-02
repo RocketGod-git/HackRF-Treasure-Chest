@@ -1,5 +1,12 @@
-Fun file by @Jimilinuxguy
-Demodulate ASK, Manchester I, View as ASCII, and direct all high fives or bitch slaps at @Jimilinuxguy
+
+
+**********************************************************************************************************
+* Demodulate ASK, Manchester I, View as ASCII, and direct all high fives or bitch slaps at @Jimilinuxguy *
+**********************************************************************************************************
+
+
+
+
 
 
 
