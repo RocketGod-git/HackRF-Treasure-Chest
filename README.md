@@ -1,83 +1,20 @@
 # HackRF-Treasure-Chest
+
 HackRF software and captures by everyone and for everyone. Argh matey. <br>
-RocketGod was here. <br>
+Feel free to contribute and submit a PR.<br>
 <br>
-Please clone, contribute, and submit PR. <br>
-Or just pirate this shit, FTW.
+All my fun videos go here:<br>
+<a href="https://youtube.com/@lordRocketGod">RocketGod's YouTube Channel</a><br>
+<br>
+Buy cool hacker toys here and use code ROCKETGOD for 5% discount<br>
+<a href="https://lab401.com/r?id=iop7bf">Lab401</a><br>
+<br>
+Come hang out with me at:<br>
+<a href="https://discord.gg/5DMM6RNtG8">The Pirates' Plunder (Discord)</a><br>
+<br>
+Tokens/NFT<br>
+0x5717085c2c9e9a0e2fcafad4faff03dd5c75295<br>
+<br>
+<a href="https://www.buymeacoffee.com/RocketGod">Buy me a coffee! I appreciate anything to help pay for server costs 🥰</a>
 
-
-                                                                                                                                                   
-                                                                                                                                                   
-                                                                                                                                            
-                                                                                                                                       
-                                                                                                 .:xOkdl,.                            
-                                                                                                 lNWNXXK0xc'                          
-                                                                                                '0MWNNXK000Oo,                  ',.   
-                                              .':looc,.                                         ;XMWWNNXKK0OOOd,             .'dXN0l. 
-                                            ,oO0OxxOXN0d'  ..,,.                                ;XMMWWNNXKK00OOOo'          .lKWWKdc;.
-                                         .:xOxl:;;;;;coo'.;ox0x.                                '0MMMWWNNXXKK000K0d:;;;;;;,,;:dxdxl.  
-                                       .lkOo:;;;;,'..     ..','                                 .dWWMMWWWNNXXXKKK00Ol..    ...;:,,,.  
-                                    .;dOOo:;;;,,'..          ..                                  ;KMWWWNNNNXXKK00000Ol.   .c:.......  
-                                 .;oOOxl:;;;,,'...           ..                                  .dWWNNNWWWNNXXKK00000x,'cl;     ,od, 
-                             .;lxOOkoc::::;;,'...            .,.                                  'OWWMMMMWWWNNXXKKK00XKk;   .,:cc;.  
-                        .'cdkO0kdlcccc::::;,,...             .l,                                   ;0NWWMMMMWWNNXXKKXXXX0c,:cc:'      
-                     .:dkOOxdlccccccc::::;;,...              .lo.                                   :KNNWMMMMWWWNNNNNXXXXXKo.         
-                   'd00xoc::::::::::;;;,,'...               .':dd'                                   :0NNWMMMMMWWWWNNXNXXXXO,         
-                  ;KXd:;;;;;,,,,,''.....                    .';cxkc.                                  ;OXXWMMMMMNXXXXXXXXXXN0;        
-                  ;xl'..........        ..',;,,....          .,:cokx;                                  'kKNNX0kKNNNWNNXXXXXNNK:       
-                    .                'cdOKXXKKOxlc:;;:;.      .';:cokd'                                .dNW0ocl0WMMWWNNNNNNNNWK:      
-                                   ,dKNNWWWNNXo'.':c::cl,       .';:cdx:                            .;dKX0dodkXMMMMMWWWNNNNNNNW0,     
-                                  ,kXNNWNNNXXO;  .,c'  'o,        ..,;lkl.                        .cONXx:''ldoxXWMMMMMWWWWWWWWWWx.    
-                                 .l0XXXXXXKK0ko,,:ccc,.;x:          ..'lO:                       :KWNKdl;.   .;lkXWMMMMMWWWWWWWMN:    
-                                 .cO0KK0000OOkdlcc:;codkk;             'o;                       ,odxococ.     .,lkKWMMMMMMMMMMMWo    
-                                  'dOOOOOkkko;,;;;;,;ldkd.             ..                           :0x;'.       ..;okKNMMMMMMMMN:    
-                                   ,oxxxxxxxl'......';cl,                                          'xNXOl.      .   ..'cdk0XNNXO:.    
-                                    .:lllllllc;;;,''',;'                                          .o0KK0k;..  ..'.        ..''.       
-                                      ..',,,''''',:ll:.                                        ...'cddddl,','':;...                   
-                                        .''..    ..'.                                         ;dkdollcccc:;,'..   .                   
-                                        'll:..                                             .;dxc'..               .                   
-                                       'dkdc,.                                           .:xxl'.                                      
-                        ..............'okOxlll;.                                       .ckkl,.                                        
-                      .;;;,,'',,,''',,',;ldddl:'.............                       .,lkkl,.                                          
-                    .,cc:,'''',;;,,'''''',cxl''''''''''',,''''......              .':ldl,..                                           
-                   '::;,'.....';::;,'''''',c:..''''''',;;,...............       .','.....                                             
-                 .,:;,'..    .';cc:,''''''','..'''''',;c:'..............''...  .,,'...                                                
-                .;;,'...     .',:c:;'''....'....''..'';c:.       ..........'''','...                                                  
-               .;;'...       .'',::,'................';c;.                .......                                                     
-             .';,'...        .''',,'..................';'                     .                                                       
-            .,;'...          ..''........................                                                                             
-           .,;'..             .''.......................                                                                              
-          .';,..              .'...................  ..                                                                               
-          .';c,..             .........................                                                                               
-          .';c,...            ..''....................                                                                                
-           .;:,..              .'''...............','.                                                                                
-           .;:,..              .''''...............''.                                                                                
-           .,clc'              .'''....................                                                                               
-            ,kKOl.             .''.....................                                                                               
-             c00x,   .         .''.............. .......                                                                              
-             .oKKx;;doclol:.  ..'''...........  .....''.                                                                              
-              'kXXKkc...,ld:. .''''''............'...''..                                                                             
-               c0XKd,     .   .''''''''....'','.''....'..                                                                             
-               'xK0x:.        ..'''''''''..',,''',.......                                                                             
-               .:k0Od,.  ..    ..............''.''....,,'.                                                                            
-                .colldo:,,'......',,,'.    ..''..'.  'cllc'.                                                                          
-                 ..'..';clllc;;;,,;;'.    ..'''..;.   .:loll;                                                                         
-                   ',.    .....',,'.       .'''....    .,:;,.                                                                         
-                    ...    ..',,,.         ...'....      .,'.                                                                         
-                      ... .......    .     . ... ..      .''.                                                                         
-                            ....    .                     .'.                                                                         
-                            .''.    .                     ...                                                                         
-                            .'..   .                       ..                                                                         
-                           ....    .                       ..                                                                         
-                           ....                             ..                                                                        
-                           ....                              .                                                                        
-                           ...                               .                                                                        
-                           ...                                                                                                        
-                           ...                       .'........                                                                       
-                           ..                        ','.......                                                                       
-                           ..                        .....  ...                                                                       
-                           .                          .      .                                                                        
-                        ..,,......                    ..    ..                                                                        
-                       .:ll:,,,''.                    ...   ..                                                                        
-                       .',,.......                     ..  ..                                                             
-                        ...   ..                       .. ..........                                                         
+![rocketgod_logo_transparent](https://user-images.githubusercontent.com/57732082/213221533-171b37da-46e5-4661-ac47-c7f23d24b816.png)
