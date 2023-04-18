@@ -13,7 +13,7 @@ Come hang out with me at:<br>
 <a href="https://discord.gg/5DMM6RNtG8">The Pirates' Plunder (Discord)</a><br>
 <br>
 Tokens/NFT<br>
-0x5717085c2c9e9a0e2fcafad4faff03dd5c75295<br>
+0x5717085c2c9e9a0e2fcafad4faff03dd5c752951<br>
 <br>
 <a href="https://www.buymeacoffee.com/RocketGod">Buy me a coffee! I appreciate anything to help pay for server costs 🥰</a>
 
