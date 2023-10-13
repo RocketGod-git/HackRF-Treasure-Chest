@@ -46,5 +46,6 @@ Feel free to contribute and submit a PR!
 ---
 
 **Note**: Ensure to check individual software documentation for installation and usage instructions.
+---
 
 ![RocketGod](https://github.com/RocketGod-git/HackRF-Treasure-Chest/assets/57732082/38158b0d-7a3d-4ae1-918c-3b72b316bbc5)
